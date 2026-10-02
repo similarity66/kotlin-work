@@ -6,5 +6,9 @@ import kotlin.io.path.readText
 import kotlin.io.path.writeText
 
 fun main() {
-    // Add your code here
+    val path = Path("test.txt")
+    path.writeText("sim")
+    path.appendText("ryosu")
+    val contents = path.readText()
+    println("contents = $contents")
 }
