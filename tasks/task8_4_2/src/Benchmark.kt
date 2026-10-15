@@ -11,14 +11,14 @@ fun main(args: Array<String>) {
     }
 
     val timeWithout = measureTime {
-        File(args[0]).readLines().filter { it.isNotBlank() }.filter { it.length < 10 }
-            .map { it.lowercase() }
+        File(args[0]).readLines().filter { it.isNotBlank() }.filter { it.length < 10 }.map { it.lowercase() }
+            
     }
 
     val timeWith = measureTime {
         File(args[0]).useLines { seq ->
-            seq.filter { it.isNotBlank() }.filter { it.length < 10 }
-                .map { it.lowercase() }.toList()
+            seq.filter { it.isNotBlank() }.filter { it.length < 10 }.map { it.lowercase() }.toList()
+                
         }
     }
 
