@@ -12,9 +12,20 @@ const val tolerance = 0.000001f
 class MedianTest : FreeSpec({
     "Exception when size=0" {
         shouldThrow<IllegalArgumentException> {
-            median(listOf())
+            findMedian(listOf())
         }
     }
-
+    "List of size 1 returns that same element" {
+        findMedian(listOf(1.0f)) shouldBe (1.0f plusOrMinus tolerance)
+    }
+    "List of size 2 returns avg of those 2 elements" {
+        findMedian(listOf(2.0f, 1.0f)) shouldBe (1.5f plusOrMinus tolerance)
+    }
+    "Odd size list returns middle value" {
+        findMedian(listOf(3.0f, 2.0f, 1.0f)) shouldBe (2f plusOrMinus tolerance)
+    }
+    "Even size list returns avg of middle 2 values" {
+        findMedian(listOf(3.0f, 4.0f, 1.0f, 2.0f)) shouldBe (2.5f plusOrMinus tolerance)
+    }
     // Write four more tests here
 })
